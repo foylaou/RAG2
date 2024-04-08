@@ -13,6 +13,8 @@ public partial class User
 
     public string? Email { get; set; }
 
+    public byte[] Salt { get; set; }
+
     public string? Sex { get; set; }
 
     public string? PhoneNumber { get; set; }

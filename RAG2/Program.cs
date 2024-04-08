@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RAG2;
+using RAG2.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
     
 });
-builder.Services.AddDbContext<MariaDBContext>(options =>
+builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("MariaDB"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MariaDB"))));
 

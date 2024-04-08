@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RAG2;
+using RAG2.Context;
 
 #nullable disable
 
 namespace RAG2.Entities
 {
-    [DbContext(typeof(MariaDBContext))]
+    [DbContext(typeof(MyDbContext))]
     [Migration("20240405214420_Initial")]
     partial class Initial
     {
