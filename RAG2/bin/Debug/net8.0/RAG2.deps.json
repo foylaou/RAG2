@@ -9,6 +9,7 @@
       "RAG2/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.Mvc": "5.3.0",
+          "Microsoft.AspNetCore.Components.Analyzers": "9.0.0-preview.2.24128.4",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.3",
           "Microsoft.EntityFrameworkCore": "8.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3",
@@ -720,7 +721,7 @@
       "Microsoft.AspNetCore.Components/8.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Authorization": "8.0.3",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.3"
+          "Microsoft.AspNetCore.Components.Analyzers": "9.0.0-preview.2.24128.4"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
@@ -729,7 +730,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.3": {},
+      "Microsoft.AspNetCore.Components.Analyzers/9.0.0-preview.2.24128.4": {},
       "Microsoft.AspNetCore.Components.Forms/8.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.3"
@@ -2757,12 +2758,12 @@
       "path": "microsoft.aspnetcore.components/8.0.3",
       "hashPath": "microsoft.aspnetcore.components.8.0.3.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.3": {
+    "Microsoft.AspNetCore.Components.Analyzers/9.0.0-preview.2.24128.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iERLuYM+YFI/K1jkinr1YeAkJYHUcijPiPCKgmgs2ZhJLqiIVJRT08vUtIsfhiFtGiI5MIzK0R1BZHyS3yAQng==",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.3",
-      "hashPath": "microsoft.aspnetcore.components.analyzers.8.0.3.nupkg.sha512"
+      "sha512": "sha512-VbjRSJTmGika7fa4Qy9IsjQJ5+Yqy2rAIrI6W4a91SfFcSIrQLdgsdFyB1gEAWQLFv/xMikic4f8KkxVDHy3bQ==",
+      "path": "microsoft.aspnetcore.components.analyzers/9.0.0-preview.2.24128.4",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Forms/8.0.3": {
       "type": "package",

@@ -840,7 +840,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.3": {
+      "Microsoft.AspNetCore.Components.Analyzers/9.0.0-preview.2.24128.4": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
@@ -4424,10 +4424,10 @@
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.3": {
-      "sha512": "iERLuYM+YFI/K1jkinr1YeAkJYHUcijPiPCKgmgs2ZhJLqiIVJRT08vUtIsfhiFtGiI5MIzK0R1BZHyS3yAQng==",
+    "Microsoft.AspNetCore.Components.Analyzers/9.0.0-preview.2.24128.4": {
+      "sha512": "VbjRSJTmGika7fa4Qy9IsjQJ5+Yqy2rAIrI6W4a91SfFcSIrQLdgsdFyB1gEAWQLFv/xMikic4f8KkxVDHy3bQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.3",
+      "path": "microsoft.aspnetcore.components.analyzers/9.0.0-preview.2.24128.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4436,7 +4436,7 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.8.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.9.0.0-preview.2.24128.4.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
@@ -9621,6 +9621,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNet.Mvc >= 5.3.0",
+      "Microsoft.AspNetCore.Components.Analyzers >= 9.0.0-preview.2.24128.4",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.3",
       "Microsoft.EntityFrameworkCore >= 8.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.3",
@@ -9632,23 +9633,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\s2250\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
+      "projectUniqueName": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
       "projectName": "RAG2",
-      "projectPath": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
-      "packagesPath": "C:\\Users\\s2250\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\obj\\",
+      "projectPath": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\s2250\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9679,6 +9680,10 @@
           "Microsoft.AspNet.Mvc": {
             "target": "Package",
             "version": "[5.3.0, )"
+          },
+          "Microsoft.AspNetCore.Components.Analyzers": {
+            "target": "Package",
+            "version": "[9.0.0-preview.2.24128.4, )"
           },
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
             "target": "Package",
@@ -9734,7 +9739,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
