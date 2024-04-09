@@ -1,0 +1,39 @@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@section scripts{
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    @if(TempData["Message"] != null){
+        <text>
+            alert("@Html.Raw(TempData["Message"])");
+        </text>
+    }
+});
+</script>
+
+}
+
+<h2>PDF upload</h2>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="mb-3 text-center">上傳PDF文檔進行向量處理</h1>
+                <form id="Upload-pdf" enctype="multipart/form-data" method="post" action="/pdf/Uploadpdf">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <input class="form-control" type="file" name="formData" accept="*">
+                    </div>
+                    <div class="d-grid">
+                        <input class="btn btn-primary btn-lg" type="submit" value="上傳文件">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 引入 Bootstrap Bundle JS (包括 Popper) -->
+</body>
