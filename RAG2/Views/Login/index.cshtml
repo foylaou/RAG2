@@ -5,38 +5,8 @@
 @{
     ViewData["Title"] = "Login";
 }
-@section scripts{
-    <script>
-            $(document).ready(function() {
-                $("#Login-form").submit(function(event) {
-                    event.preventDefault(); // 阻止表单的默認提交行為
-                    post(); // 調用 post 函数以進行異步提交
-                });
-            });
 
-       function post() {
-           $.ajax({
-               type: "POST",
-               url: "/Login/Index",
-               // 註冊頁面url
-               data: $("#Login-form").serialize(),
-               // 使用表單id獲取數據
-               success:function (data) {
-                                if (data.error) {
-                                    // 顯示錯誤訊息
-                                    alert(data.error);
-                                } else if (data.message) {
-                                    // 顯示成功訊息
-                                    alert(data.message);
-                                }
-                            },
-               error: function (xhr, status, error) {
-                    console.error(error);
-                },
-           });
-       }
-    </script>
-}
+
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -59,7 +29,7 @@
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">請輸入您的帳號及密碼</p>
-                    <form id="Login-form">
+                    <form id="Login-form" method="post">
                         @Html.AntiForgeryToken()
                             <div class="input-group mb-3">
                                 <span class="input-group-text" style="height: 38px; line-height: 24px;">
@@ -76,7 +46,9 @@
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary">登入</button>
                         </div>
-
+                        <div>
+                            <span style="color:red"> @ViewBag.Msg </span>
+                        </div>
                         <div class="text-center mt-2">
                             <a href="/SignUp">創建帳號</a>
                         </div>

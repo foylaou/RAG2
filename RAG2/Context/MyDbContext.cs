@@ -21,9 +21,11 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<__EFMigrationsHistory> __EFMigrationsHistories { get; set; }
 
+    public virtual DbSet<message> messages { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=foynas.synology.me;port=3306;database=Rag2;user=av2288444;password=!t0955787053S", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.11.2-mariadb"));
+        => optionsBuilder.UseMySql("server=foynas.synology.me;port=3306;database=Rag2;user=av2288444;password=!t0955787053S;charset=utf8", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.11.2-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -35,17 +37,17 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Salt).IsFixedLength();
         });
 
         modelBuilder.Entity<__EFMigrationsHistory>(entity =>
         {
             entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
+        });
 
-            entity.ToTable("__EFMigrationsHistory");
-
-            entity.Property(e => e.MigrationId).HasMaxLength(150);
-            entity.Property(e => e.ProductVersion).HasMaxLength(32);
+        modelBuilder.Entity<message>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
         });
 
         OnModelCreatingPartial(modelBuilder);

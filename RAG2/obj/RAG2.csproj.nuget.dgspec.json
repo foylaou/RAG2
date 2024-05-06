@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj": {}
+    "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj": {
+    "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
+        "projectUniqueName": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
         "projectName": "RAG2",
-        "projectPath": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
-        "packagesPath": "C:\\Users\\s2250\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\s2250\\公司用(onedrive)\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\obj\\",
+        "projectPath": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\RAG2.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\OneDrive - Foy365\\C# Projects\\RAG2\\RAG2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\s2250\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -57,6 +57,14 @@
               "target": "Package",
               "version": "[8.0.3, )"
             },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.3, )"
@@ -86,6 +94,10 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "python": {
+              "target": "Package",
+              "version": "[3.9.13, )"
             }
           },
           "imports": [
@@ -107,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

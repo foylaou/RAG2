@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace RAG2.Entities;
 
+[Table("__EFMigrationsHistory")]
 public partial class __EFMigrationsHistory
 {
-    public string MigrationId { get; set; } = null;
+    [Key]
+    [StringLength(150)]
+    public string MigrationId { get; set; } = null!;
 
-    public string ProductVersion { get; set; } = null;
+    [StringLength(32)]
+    public string ProductVersion { get; set; } = null!;
 }

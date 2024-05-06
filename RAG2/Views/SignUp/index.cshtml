@@ -5,38 +5,7 @@
 @{
     ViewData["Title"] = "SignUp";
 }
-@section scripts{
-    <script>
-            $(document).ready(function() {
-                $("#SignUp-form").submit(function(event) {
-                    event.preventDefault(); // 阻止表单的默認提交行為
-                    post(); // 調用 post 函数以進行異步提交
-                });
-            });
 
-       function post() {
-           $.ajax({
-               type: "POST",
-               url: "/SignUp/Index",
-               // 註冊頁面url
-               data: $("#SignUp-form").serialize(),
-               // 使用表單id獲取數據
-               success:function (data) {
-                                if (data.error) {
-                                    // 顯示錯誤訊息
-                                    alert(data.error);
-                                } else if (data.message) {
-                                    // 顯示成功訊息
-                                    alert(data.message);
-                                }
-                            },
-               error: function (xhr, status, error) {
-                    console.error(error);
-                },
-           });
-       }
-    </script>
-}
 <!DOCTYPE html>
 
 
@@ -78,7 +47,9 @@
                             <label for="confirmPassword" class="form-label">再次輸入密碼</label>
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                         </div>
-
+                        <div>
+                            <span style="color:red">@ViewBag.Msg</span>
+                        </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary">注册</button>
                         </div>

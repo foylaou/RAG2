@@ -23,13 +23,16 @@ public class SignUpController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Index(string username, string password, string email)
+    public IActionResult Index(IFormCollection post)
     {
+        string username = post["username"];
+        string password = post["password"];
+        string email = post["email"];
         //資料輸入處理邏輯判斷空值或空白
         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email))
         {
-            var data = new { Error = "不得為空值" };
-            return Json(data);
+            ViewBag.Msg = "不得為空值";
+            return View();
         }
         //產生SALT
         byte[] salt = new byte[128 / 8];
@@ -48,14 +51,14 @@ public class SignUpController : Controller
         //邏輯判斷帳號名稱是否重複
         if (_db.Users.Any(u => u.Username == username))
         {
-            var data = new { Error = "使用者名稱重複" };
-            return Json(data);
+            ViewBag.Msg = "使用者名稱重複";
+            return View();
         }
         //邏輯判斷帳信箱是否重複
         if (_db.Users.Any(u => u.Email == email))
         {
-            var data = new { Error = "信箱重複註冊" };
-            return Json(data);
+            ViewBag.Msg = "信箱重複註冊";
+            return View();
         }
         //將註冊資料寫近資料庫
         var user = new User()

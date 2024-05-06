@@ -4,6 +4,15 @@ using RAG2.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 添加服務到容器
+builder.Services.AddDistributedMemoryCache(); // 使用內存作為 Session 存儲
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session 超時設置
+    options.Cookie.HttpOnly = true; // 防止客戶端腳本訪問 Cookies
+    options.Cookie.IsEssential = true; // 標記 Cookie 為基本服務以符合 GDPR
+});
+builder.Services.AddControllersWithViews(); // 如果是 MVC 應用
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -34,7 +43,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession(); // 啟用 Session 中間件
 app.UseAuthorization();
 
 app.MapControllerRoute(

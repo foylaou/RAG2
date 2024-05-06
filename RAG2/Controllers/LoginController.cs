@@ -22,36 +22,46 @@ namespace RAG2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(string username, string password)
+        public IActionResult Index(IFormCollection post)
         {
+            string username = post["username"];
+            string password = post["password"];
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                var data = new { Error = "不得為空值" };
-                return Json(data); // 在ASP.NET Core中，直接使用Json方法
+                ViewBag.Msg = "不得為空值";
+                return View();
             }
-
-
-
             
             var user = _db.Users.FirstOrDefault(u => u.Username == username);
-            
+            if (user == null)
+            {
+                ViewBag.Msg = "帳號不存在";
+                return View();
+            }
             var hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: password,
-                salt: user?.Salt,
+                salt: user.Salt,
                 prf: KeyDerivationPrf.HMACSHA1,
                 iterationCount: 10000,
                 numBytesRequested: 256 / 8));
             // 假设Session已经在Startup中配置好
             if (user.Password == hashedPassword)
             {
-                Console.WriteLine("登入成功");
-                var successData = new { message = "登入成功" };
-                
-                return Json(successData);
+                HttpContext.Session.SetString("login","login");
+                HttpContext.Session.SetString("UserId", user.Id.ToString());
+                if (user.Username != null) HttpContext.Session.SetString("Username", user.Username.ToString());
+                if (user.FirstName != null) HttpContext.Session.SetString("FirstName", user.FirstName.ToString());
+                if (user.LastName != null) HttpContext.Session.SetString("LastName", user.LastName.ToString());
+                return Redirect("/home");
             }
-
-            var loginerrorData = new { message = "帳號或密碼錯誤" };
-            return Json(loginerrorData);
+            Thread.Sleep(5000);
+            ViewBag.Msg = "帳號或密碼錯誤";
+            return View();
+        }
+        public ActionResult Logout(IFormCollection post)
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Login");  // 重定向到首页
         }
     }
 }

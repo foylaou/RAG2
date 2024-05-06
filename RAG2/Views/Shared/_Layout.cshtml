@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+var firstName = Context.Session.GetString("FirstName");
+var lastName = Context.Session.GetString("LastName");
+var userName = Context.Session.GetString("Username");
+
+var fullName = (!string.IsNullOrWhiteSpace(firstName) && !string.IsNullOrWhiteSpace(lastName))
+? $"{firstName} {lastName}"
+: userName;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -178,7 +187,7 @@
               <a href="#">
                 <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
                 <div>
-                  <h4>David Muldon</h4>
+                  <h4></h4> 
                   <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
                   <p>8 hrs. ago</p>
                 </div>
@@ -200,7 +209,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">@fullName</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -258,11 +267,13 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
+
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
+        
         <a class="nav-link " href="/home">
           <i class="bi bi-grid"></i>
           <span>首頁</span>
@@ -292,28 +303,52 @@
           <li>
           </li><!-- End 下拉式功能表 Nav -->
           </ul>
-      <li class="nav-heading">頁面</li>
+        <li class="nav-heading">頁面</li>
 
+      @{
+      if (Context.Session.GetString("login") != null){
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.html">
           <i class="bi bi-person"></i>
           <span>個人資訊</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
+      }
+      }
+      @{
+      if (Context.Session.GetString("login") == null)
+      {
       <li class="nav-item">
         <a class="nav-link collapsed" href="/SignUp">
           <i class="bi bi-card-list"></i>
           <span>註冊</span>
         </a>
       </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/login">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>登入</span>
-        </a>
-      </li><!-- End Login Page Nav -->
+      }
+      }
+      @{
+      if (Context.Session.GetString("login") == null)
+      {
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/login">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>登入</span>
+          </a>
+        </li>
+      }
+      }
+      @{
+        if (Context.Session.GetString("login") != null)
+        {
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="/login/Logout">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>登出</span>
+            </a>
+          </li>
+        }
+      }
+      <!-- End Login Page Nav -->
 
 </ul>
   </aside><!-- End Sidebar-->

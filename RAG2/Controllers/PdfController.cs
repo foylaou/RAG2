@@ -5,7 +5,7 @@ using System;
 
 namespace RAG2.Controllers
 {
-    public class PdfController : Controller
+    public class PdfController : BaseController
     {
         public IActionResult Index()
         {
